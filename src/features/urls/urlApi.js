@@ -34,7 +34,7 @@ export const urlApi = api.injectEndpoints({
     }),
     deleteUrl: builder.mutation({
       query: (id) => ({
-        url: DELETE_URL(id),
+        url: DELETE_URL + id,
         method: DELETE,
       }),
       invalidatesTags: ["url"],

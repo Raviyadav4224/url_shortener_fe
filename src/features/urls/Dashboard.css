@@ -79,3 +79,14 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.delete-icon {
+  width: 24px;
+  height: 24px;
+  fill: red;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.delete-icon:hover {
+  transform: scale(1.15);
+}

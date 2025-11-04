@@ -1,8 +1,8 @@
 import { http, HttpResponse } from "msw";
 
-import { ALL_URL_FOR_USER, SHORTEN_URL } from "@/constants";
+import { ALL_URL_FOR_USER, DELETE_URL, SHORTEN_URL } from "@/constants";
 
-const dummyData = [
+let dummyData = [
   {
     id: 1,
     originalUrl: "http://google.com",
@@ -22,7 +22,7 @@ const dummyData = [
   {
     id: 3,
     originalUrl: "http://google.com",
-    shortUrl: "tY5KTmr",
+    shortUrl: "http://13.200.254.26/api/v1/url/r/xvfO5fI",
     createdAt: "2025-11-04T07:57:58.328456",
     expiresAt: "2025-11-04T08:27:58.326519",
     clickCount: 0,
@@ -59,6 +59,18 @@ export const urlHandlers = [
         },
       },
       { status: 201 }
+    );
+  }),
+  http.delete(DELETE_URL + ":id", async ({ params }) => {
+    const { id } = params;
+    dummyData = dummyData.filter((item) => item?.id !== parseInt(id, 10));
+    return HttpResponse.json(
+      {
+        message: "success",
+        success: false,
+        data: "Url removed successfully",
+      },
+      { status: 204 }
     );
   }),
 ];

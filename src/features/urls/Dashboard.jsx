@@ -1,20 +1,29 @@
 import React from "react";
+import { toast } from "react-toastify";
 
-import "./Dashboard.css";
+import { ReactComponent as DeleteIcon } from "@/assets/icons/delete.svg";
 import Loader from "@components/Loader";
+import "./Dashboard.css";
 
 import CreateShortUrl from "./CreateShortUrl";
-import { useAllUrlsQuery } from "./urlApi";
+import { useAllUrlsQuery, useDeleteUrlMutation } from "./urlApi";
 
 const Dashboard = () => {
   const { data, isLoading, isSuccess } = useAllUrlsQuery(1);
+  const [deleteUrl] = useDeleteUrlMutation();
+  const handleDeleteUrl = async (id) => {
+    try {
+      const res = await deleteUrl(id);
+      toast.success(res?.data?.message);
+    } catch (error) {
+      toast.error(error?.message || "Something went wrong");
+    }
+  };
   return (
     <div className="dashboard-container">
       <h2>Dashboard</h2>
 
-      <CreateShortUrl
-      // onAdd={handleAddUrl}
-      />
+      <CreateShortUrl />
 
       {isLoading && <Loader />}
       {isSuccess && (
@@ -32,6 +41,7 @@ const Dashboard = () => {
                   <th>created At</th>
                   <th>expires At</th>
                   <th>Click Count</th>
+                  <th>Remove</th>
                 </tr>
               </thead>
               <tbody>
@@ -47,6 +57,9 @@ const Dashboard = () => {
                     <td>{url.createdAt}</td>
                     <td>{url.expiresAt}</td>
                     <td>{url.clickCount}</td>
+                    <td>
+                      <DeleteIcon className="delete-icon" onClick={() => handleDeleteUrl(url.id)} />
+                    </td>
                   </tr>
                 ))}
               </tbody>
