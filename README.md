@@ -1,16 +1,28 @@
-# React + Vite
+# 🔗 URL Shortener (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend for a URL shortening service — fast, clean, and minimal.  
+Built using **React**, **Vite**, and **Redux Toolkit Query** for API management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Overview
+This is the frontend of the URL Shortener project.  
+It connects to your backend API to:
+- Register and login users
+- Create short URLs
+- Fetch all shortened URLs
+- Delete or edit URLs
 
-## React Compiler
+Designed to be simple yet production-ready — perfect for showcasing frontend and API integration skills.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧱 Tech Stack
+- **React + Vite** — lightning-fast dev setup
+- **Redux Toolkit Query (RTK Query)** — data fetching, caching, and mutation layer
+- **React Router DOM** — routing between pages
+- **ESLint + Prettier** — linting and formatting
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 Folder Structure (with Explanation)
+
