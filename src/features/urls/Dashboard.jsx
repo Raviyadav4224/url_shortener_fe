@@ -38,8 +38,8 @@ const Dashboard = () => {
                   <th>Id</th>
                   <th>Original URL</th>
                   <th>Short URL</th>
-                  <th>created At</th>
-                  <th>expires At</th>
+                  <th>Created At</th>
+                  <th>Expires At</th>
                   <th>Click Count</th>
                   <th>Remove</th>
                 </tr>

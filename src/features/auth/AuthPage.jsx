@@ -27,17 +27,17 @@ export default function AuthPage() {
       let token = null;
       if (isLogin) {
         const result = await login(form).unwrap();
-        token = result?.data?.split("-");
+        token = result?.data?.split("User logged in successfully with token - ");
         toast.success(token[0] || "Login successful");
       } else {
         const result = await register(form).unwrap();
-        token = result?.data?.split("-")[0];
+        token = result?.data?.split("User registered successfully with token - ");
         toast.success(token[0] || "Registered successfully");
       }
       dispatch(setCredentials({ token: token[1]?.trim() }));
       navigate("/dashboard");
     } catch (err) {
-      toast.error(err?.data?.message || "Something went wrong");
+      toast.error(err?.data?.data?.password || "Something went wrong");
     }
   };
 

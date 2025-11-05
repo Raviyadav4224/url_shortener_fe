@@ -28,6 +28,7 @@ let dummyData = [
     clickCount: 0,
   },
 ];
+let count = 10;
 export const urlHandlers = [
   http.get(ALL_URL_FOR_USER + ":id", async () => {
     return HttpResponse.json(
@@ -41,10 +42,11 @@ export const urlHandlers = [
   }),
   http.post(SHORTEN_URL, async ({ request }) => {
     const { originalUrl } = await request.json();
+    count += 1;
     dummyData.push({
-      id: 5,
+      id: count,
       originalUrl: originalUrl,
-      shortUrl: "rTujjvb",
+      shortUrl: "http://13.200.254.26/api/v1/url/r/rTujjvb",
       createdAt: "2025-11-04T05:43:42.71551",
       expiresAt: "2025-11-04T06:13:42.671219",
       clickCount: 0,

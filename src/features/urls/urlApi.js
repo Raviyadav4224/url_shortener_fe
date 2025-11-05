@@ -15,7 +15,7 @@ export const urlApi = api.injectEndpoints({
       query: (url) => ({
         url: SHORTEN_URL,
         method: POST,
-        body: JSON.stringify(url),
+        body: url,
       }),
       invalidatesTags: ["url"],
     }),

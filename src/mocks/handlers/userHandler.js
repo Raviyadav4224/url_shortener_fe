@@ -12,7 +12,8 @@ export const userHandlers = [
             message: "Invalid input",
             success: false,
             data: {
-              username: "Username is required",
+              password:
+                "Password does not meets the criteria of having at least one digit, one lowercase letter, one uppercase letter, one special character, and a length between 8 and 20 characters",
             },
           },
           { status: 500 }
