@@ -12,7 +12,7 @@ export const LOGOUT = BASE_URL + "users/logout";
 
 // URL MAPPING URL's
 export const SHORTEN_URL = BASE_URL + "url/shorten";
-export const ALL_URL_FOR_USER = BASE_URL + "url/all/";
+export const ALL_URL_FOR_USER = BASE_URL + "url/all";
 export const REDIRECT_URL = BASE_URL + "url/r/";
 export const DELETE_URL = BASE_URL + "url/";
 

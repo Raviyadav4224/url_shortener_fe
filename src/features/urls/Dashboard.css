@@ -32,7 +32,7 @@
   border-radius: 6px;
 }
 
-.create-url-box button {
+button {
   background: #007bff;
   border: none;
   color: white;
@@ -41,7 +41,7 @@
   cursor: pointer;
 }
 
-.create-url-box button:hover {
+button:hover {
   background: #0056b3;
 }
 

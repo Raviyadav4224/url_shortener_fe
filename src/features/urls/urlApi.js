@@ -20,17 +20,18 @@ export const urlApi = api.injectEndpoints({
       invalidatesTags: ["url"],
     }),
     allUrls: builder.query({
-      query: (id) => ({
-        url: ALL_URL_FOR_USER + id,
+      query: () => ({
+        url: ALL_URL_FOR_USER,
         method: GET,
       }),
       providesTags: ["url"],
     }),
-    redirectUrl: builder.query({
+    redirectUrl: builder.mutation({
       query: (shortUrl) => ({
-        url: REDIRECT_URL(shortUrl),
+        url: REDIRECT_URL + shortUrl,
         method: GET,
       }),
+      invalidatesTags: ["url"],
     }),
     deleteUrl: builder.mutation({
       query: (id) => ({
@@ -42,5 +43,5 @@ export const urlApi = api.injectEndpoints({
   }),
 });
 
-export const { useDeleteUrlMutation, useShortenMutation, useAllUrlsQuery, useRedirectUrlQuery } =
+export const { useDeleteUrlMutation, useShortenMutation, useAllUrlsQuery, useRedirectUrlMutation } =
   urlApi;

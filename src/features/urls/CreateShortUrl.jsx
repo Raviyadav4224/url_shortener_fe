@@ -17,9 +17,13 @@ export default function CreateShortUrl() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.original.trim()) return;
-    const { data: result } = await shortenUrl({ originalUrl: form.original });
-    toast.success(result?.message);
-    setForm({ original: "" });
+    try {
+      const { data: result } = await shortenUrl({ originalUrl: form.original });
+      toast.success(result?.message);
+      setForm({ original: "" });
+    } catch (error) {
+      toast.error(error?.message);
+    }
   };
 
   return (

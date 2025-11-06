@@ -1,12 +1,12 @@
 import { http, HttpResponse } from "msw";
 
-import { ALL_URL_FOR_USER, DELETE_URL, SHORTEN_URL } from "@/constants";
+import { ALL_URL_FOR_USER, DELETE_URL, REDIRECT_URL, SHORTEN_URL } from "@/constants";
 
 let dummyData = [
   {
     id: 1,
     originalUrl: "http://google.com",
-    shortUrl: "AiSjcHI",
+    shortUrl: "http://13.200.254.26/api/v1/url/r/AiSjcHI",
     createdAt: "2025-11-04T05:43:42.71551",
     expiresAt: "2025-11-04T06:13:42.671219",
     clickCount: 0,
@@ -14,7 +14,7 @@ let dummyData = [
   {
     id: 2,
     originalUrl: "http://google.com",
-    shortUrl: "LW0KDq9",
+    shortUrl: "http://13.200.254.26/api/v1/url/r/LW0KDq9",
     createdAt: "2025-11-04T07:57:55.118605",
     expiresAt: "2025-11-04T08:27:55.114402",
     clickCount: 0,
@@ -30,7 +30,7 @@ let dummyData = [
 ];
 let count = 10;
 export const urlHandlers = [
-  http.get(ALL_URL_FOR_USER + ":id", async () => {
+  http.get(ALL_URL_FOR_USER, async () => {
     return HttpResponse.json(
       {
         message: "URL's fetched successfully",
@@ -61,6 +61,15 @@ export const urlHandlers = [
         },
       },
       { status: 201 }
+    );
+  }),
+  http.get(REDIRECT_URL + ":id", async () => {
+    return HttpResponse.json(
+      {
+        message: "URL's fetched successfully",
+        success: true,
+      },
+      { status: 301 }
     );
   }),
   http.delete(DELETE_URL + ":id", async ({ params }) => {
