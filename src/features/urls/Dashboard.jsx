@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 import { ReactComponent as DeleteIcon } from "@/assets/icons/delete.svg";
 import { api } from "@/store";
+import { normalizeUrl } from "@/utils";
 import Loader from "@components/Loader";
 import "./Dashboard.css";
 
@@ -32,7 +33,7 @@ const Dashboard = () => {
 
   const handleRedirect = async (url) => {
     try {
-      const res = await redirectUrl(url?.split("/")[4] ?? "").unwrap();
+      const res = await redirectUrl(normalizeUrl(url)).unwrap();
       toast(res?.message);
     } catch (error) {
       toast.error(error?.message || "Something went wrong");

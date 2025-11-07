@@ -6,6 +6,7 @@ import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
+import vitest from "eslint-plugin-vitest";
 
 export default defineConfig([
   globalIgnores(["dist", "build", "*.config.js"]),
@@ -20,10 +21,11 @@ export default defineConfig([
     plugins: {
       import: importPlugin,
       prettier: prettierPlugin,
+      vitest: vitest,
     },
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.vitest },
       parserOptions: {
         ecmaVersion: "latest",
         ecmaFeatures: { jsx: true },

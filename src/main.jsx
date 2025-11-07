@@ -9,7 +9,7 @@ import { worker } from "./mocks/worker";
 import { routes } from "./routes";
 import { store } from "./store";
 
-if (!import.meta.env.DEV) {
+if (import.meta.env.DEV) {
   worker.start({
     onUnhandledRequest: "bypass",
   });
