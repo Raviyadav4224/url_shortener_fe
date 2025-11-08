@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8000/api/v1/";
+export const BASE_URL = "http://localhost:8081/api/v1/";
 export const GET = "GET";
 export const POST = "POST";
 export const PATCH = "PATCH";
@@ -9,6 +9,7 @@ export const DELETE = "DELETE";
 export const LOGIN = BASE_URL + "users/login";
 export const REGISTER = BASE_URL + "users/register";
 export const LOGOUT = BASE_URL + "users/logout";
+export const REFRESH = BASE_URL + "users/refresh";
 
 // URL MAPPING URL's
 export const SHORTEN_URL = BASE_URL + "url/shorten";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -27,14 +27,14 @@ export default function AuthPage() {
       let token = null;
       if (isLogin) {
         const result = await login(form).unwrap();
-        token = result?.data?.split("User logged in successfully with token - ");
-        toast.success(token[0] || "Login successful");
+        token = result?.data?.accessToken;
+        toast.success("Login successful");
       } else {
         const result = await register(form).unwrap();
-        token = result?.data?.split("User registered successfully with token - ");
-        toast.success(token[0] || "Registered successfully");
+        token = result?.data?.accessToken;
+        toast.success("Registered successfully");
       }
-      dispatch(setCredentials({ token: token[1]?.trim() }));
+      dispatch(setCredentials({ token: token }));
       navigate("/dashboard");
     } catch (err) {
       toast.error(err?.data?.data?.password || "Something went wrong");

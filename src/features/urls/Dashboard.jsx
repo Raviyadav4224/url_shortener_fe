@@ -15,7 +15,7 @@ import { useLogoutMutation } from "../auth/authApi";
 import { logout } from "../auth/authSlice";
 
 const Dashboard = () => {
-  const { data, isLoading, isSuccess } = useAllUrlsQuery(1);
+  const { data, isLoading, isSuccess } = useAllUrlsQuery();
   const [deleteUrl] = useDeleteUrlMutation();
   const [redirectUrl] = useRedirectUrlMutation();
   const [logOutUser] = useLogoutMutation();
@@ -35,6 +35,7 @@ const Dashboard = () => {
     try {
       const res = await redirectUrl(normalizeUrl(url)).unwrap();
       toast(res?.message);
+      window.open(res?.data?.originalurl, "_blank", "noopener,noreferrer");
     } catch (error) {
       toast.error(error?.message || "Something went wrong");
     }
@@ -44,9 +45,9 @@ const Dashboard = () => {
     try {
       const res = await logOutUser().unwrap();
       dispatch(logout());
-      dispatch(api?.util?.resetApiState()); //Clear api states in rtkq on logout
       toast.success(res?.message);
       navigate("/", { replace: true });
+      dispatch(api?.util?.resetApiState()); //Clear api states in rtkq on logout
     } catch (error) {
       toast.error(error?.data?.message || "Something went wrong");
     }
@@ -87,7 +88,7 @@ const Dashboard = () => {
                     <td>{url.originalUrl}</td>
                     <td>
                       <a
-                        href={url.shortUrl}
+                        // href={url.shortUrl}
                         target="_blank"
                         rel="noreferrer"
                         onClick={() => handleRedirect(url.shortUrl)}

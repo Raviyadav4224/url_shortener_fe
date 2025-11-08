@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 
 import { LOGIN, LOGOUT, POST, REGISTER } from "@/constants";
+import { REFRESH } from "@/constants/apiUrls";
 import { UserSchema } from "@/schemas";
 import { api } from "@/store";
 
@@ -33,7 +34,14 @@ export const authApi = api.injectEndpoints({
         method: POST,
       }),
     }),
+    refreshToken: builder.mutation({
+      query: () => ({
+        url: REFRESH,
+        method: POST,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useLogoutMutation, useRegisterMutation } = authApi;
+export const { useLoginMutation, useLogoutMutation, useRegisterMutation, useRefreshTokenMutation } =
+  authApi;
