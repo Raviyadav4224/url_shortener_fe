@@ -43,6 +43,12 @@ export default function AuthPage() {
 
   return (
     <div className="auth-container">
+      <div className="app-heading">
+        <h1>
+          URL Shortener<span> App</span>
+        </h1>
+        <p>Shorten. Share. Track.</p>
+      </div>
       <div className="auth-box">
         {isLoading && <Loader />}
         <h2>{isLogin ? "Login" : "Register"}</h2>

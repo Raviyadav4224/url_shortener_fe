@@ -69,6 +69,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .auth-box {
@@ -213,3 +214,54 @@ form {
     animation: none !important;
   }
 } */
+/* --- App Heading (Hero Section) --- */
+.app-heading {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.app-heading h1 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.app-heading h1 span {
+  background: linear-gradient(90deg, var(--accent-3), var(--accent-1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-heading p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 640px) {
+  .app-heading h1 {
+    font-size: 28px;
+  }
+  .app-heading p {
+    font-size: 14px;
+  }
+}
