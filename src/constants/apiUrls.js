@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8081/api/v1/";
+export const BASE_URL = import.meta.env.VITE_APP_BASE_URL_DEV;
 export const GET = "GET";
 export const POST = "POST";
 export const PATCH = "PATCH";

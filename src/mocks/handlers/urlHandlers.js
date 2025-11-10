@@ -68,8 +68,11 @@ export const urlHandlers = [
       {
         message: "URL's fetched successfully",
         success: true,
+        data: {
+          originalurl: "http://google.com",
+        },
       },
-      { status: 301 }
+      { status: 200 }
     );
   }),
   http.delete(DELETE_URL + ":id", async ({ params }) => {

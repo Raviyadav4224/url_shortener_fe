@@ -24,7 +24,10 @@ export const userHandlers = [
         {
           message: "",
           success: true,
-          data: "User registered successfully with token - eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSYXZpIEt1bWFyIiwiaWF0IjoxNzYyMjMzNzQ0LCJleHAiOjE3NjIyMzU1NDR9.RzLvGXVmBV15ZX8vIxmJgvbn2hC-KqsYvawwQWYugOM",
+          data: {
+            accessToken:
+              "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSYXZpIEt1bWFyIiwiaWF0IjoxNzYyMjMzNzQ0LCJleHAiOjE3NjIyMzU1NDR9.RzLvGXVmBV15ZX8vIxmJgvbn2hC-KqsYvawwQWYugOM",
+          },
         },
         { status: 201 }
       );
@@ -54,7 +57,10 @@ export const userHandlers = [
         {
           message: "",
           success: true,
-          data: "User logged in successfully with token - eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSYXZpIEt1bWFyIiwiaWF0IjoxNzYyMjMzNzc4LCJleHAiOjE3NjIyMzU1Nzh9.anFIIwrZz941pZ4b6oeFmNWh5JLaD3USgbdAruj_5ao",
+          data: {
+            accessToken:
+              "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSYXZpIEt1bWFyIiwiaWF0IjoxNzYyMjMzNzQ0LCJleHAiOjE3NjIyMzU1NDR9.RzLvGXVmBV15ZX8vIxmJgvbn2hC-KqsYvawwQWYugOM",
+          },
         },
         { status: 201 }
       );

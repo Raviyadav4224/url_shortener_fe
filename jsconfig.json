@@ -2,6 +2,7 @@
   "compilerOptions": {
     "module": "esnext",
     "baseUrl": "src",
+    "moduleResolution": "node",
     "paths": {
       "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"],
