@@ -18,7 +18,7 @@ const Dashboard = () => {
   const { data, isLoading, isSuccess } = useAllUrlsQuery();
   const [deleteUrl] = useDeleteUrlMutation();
   const [redirectUrl] = useRedirectUrlMutation();
-  const [logOutUser] = useLogoutMutation();
+  const [logOutUser, { isLoading: isLoadingLogout }] = useLogoutMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -53,12 +53,12 @@ const Dashboard = () => {
     }
   };
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container dashboard-bg">
       <h2>Dashboard</h2>
 
       <CreateShortUrl />
 
-      {isLoading && <Loader />}
+      {(isLoading || isLoadingLogout) && <Loader />}
       {isSuccess && (
         <div className="url-list">
           <div className="user-details">
@@ -89,6 +89,7 @@ const Dashboard = () => {
                     <td>
                       <a
                         // href={url.shortUrl}
+                        data-label="Short URL"
                         target="_blank"
                         rel="noreferrer"
                         onClick={() => handleRedirect(url.shortUrl)}
